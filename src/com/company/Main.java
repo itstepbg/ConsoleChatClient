@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.model.API;
+import com.company.util.Sha1Hash;
 
 import java.util.Scanner;
 
@@ -46,8 +47,10 @@ public class Main {
     private static void attemptLogin() {
         String userName = readUserInput("Please enter your User Name: ");
         String password = readUserInput("Please enter your Password: ");
+       
+        String hashedPassword = Sha1Hash.hashPassword(password);
 
-        String loginMessage = API.PREFIX_LOGIN + userName + "," + password;
+        String loginMessage = API.PREFIX_LOGIN + userName + "," + hashedPassword;
 
         networkingThread.getMessageQueue().offer(loginMessage);
     }

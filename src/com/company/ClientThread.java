@@ -25,7 +25,7 @@ public class ClientThread extends Thread {
         try {
             clientSocket = new DatagramSocket(port);
             clientSocket.setSoTimeout(1000);
-            serverAddress = InetAddress.getByName("127.0.0.1");
+            serverAddress = InetAddress.getByName("192.168.100.80");
         } catch (SocketException e) {
             e.printStackTrace();
         } catch (UnknownHostException e) {
